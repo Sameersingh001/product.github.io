@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card</title>
+
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    background-color: rgba(70, 245, 201, 0.329);
+    display: flex;
+    justify-content: center;
+    
+}
+
+.back{
+    background-color: white;
+   
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1ft));
+  
+
+    
+}
+
+.detail{
+   
+    height: 28rem;
+    width: 19rem;
+    display: flex;
+    flex-direction: column;
+    
+    margin-left: 2rem;
+
+}
+
+
+.apple{
+  
+    height: 4rem;
+    width: 19rem; ;
+}
+
+.apple h1 {
+    color: rgb(0, 0, 0);
+    font-family: cursive;
+    font-size: x-large;
+    font-weight: bold;
+}
+.apple p{
+    color: gray;
+    font-family: sans-serif;
+    font-size: small;
+    margin-left: 10px;
+}
+.price{
+
+    height: 4rem;
+    width: 19rem; 
+    display: flex;
+    align-items: center;
+   
+
+}
+.price h1{
+    font-family: cursive;
+    color: rgb(250, 62, 62);
+    font-size:2.5rem ;
+    margin: 0;
+}
+
+.price p{
+    color: red;
+    font-family: sans-serif;
+    margin-left: 2px;
+}
+.price h1::before{
+    content: "R$";
+    font-size: 15px;
+    margin-left:3px ;
+}
+s{
+    font-size: 2rem;
+    margin-left: 2px;
+}
+
+.detail>img{
+    height: 4rem;
+    width: 4rem;
+    margin-top: 1rem;
+}
+
+.benefit {
+   
+    height: 15rem;
+    width: 19rem; 
+
+    margin-top: 0rem;
+}
+
+.benefit h3{
+    color: gray;
+    font-family: sans-serif;
+    font-size: .8rem;
+    margin-top:5px ;
+   
+
+}
+
+.benefit ol li{
+
+    font-family: sans-serif;
+    color: gray;
+    font-size: 1rem;    
+    margin-left: 1rem;
+}
+
+.but{
+    display: flex;
+    flex-flow: row wrap;
+    height: 5rem;
+    width: 18rem;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+button{
+    background-color: rgb(245, 35, 35);
+    color: white;
+    height: 2rem;
+    width: 8rem;
+    font-weight: bold;
+    font-family: sans-serif;
+    border: none;
+    border-radius: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
+
+.benefit .but button a{
+    text-decoration: none;
+    color: white;
+}
+
+button:hover{
+    box-shadow: rgba(226, 18, 164, 0.25) 0px 30px 60px -12px inset, rgba(240, 12, 12, 0.3) 0px 18px 36px -18px inset;
+}
+
+.main{
+    width: 15rem;
+    height: 28rem;
+    padding: 2px;
+    display: flex;
+    align-items:center ;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 3rem;
+    
+}
+
+.main .hide ul {
+    list-style-type: none;
+    
+    height:300px;
+    width: 250px;
+    padding: 2px;
+}
+
+.main .hide ul li{
+   position: absolute;
+   opacity: 0;
+  
+ 
+}
+
+.main .hide ul li img{
+    height: 300px;
+    width: 240px;
+    object-fit: cover;
+    
+  
+  
+}
+
+.main .hide ul li:first-child{
+    opacity: 1;
+}
+
+.slide{
+    display: grid;
+    grid-template-columns:repeat(4, 0fr);
+    grid-gap: 5px;
+
+   display: flex;
+   align-items: center;
+}
+
+.slide a{
+    border: 2px solid rgb(240, 230, 230);
+    height: 3rem;
+   
+}
+
+.slide a:hover{
+    border: 2px solid rgb(59, 57, 57);
+}
+
+.slide a img {
+
+    height: 3rem;
+    width: 3rem;
+    object-fit: cover;
+   
+   
+}
+
+.main .hide ul li:target{
+opacity: 1;
+}
+.select{
+    color: gray;
+    font-family: sans-serif;
+    font-size: medium;
+    margin-top: 10px;
+}
+.select::before{
+    content: ">";
+}
+
+.main p{
+    margin-top: 5px;
+    font-family: sans-serif;
+   font-size: small;
+}
+
+</style>
+
+
+
+
+</head>
+<body>
+    
+<div class="back">
+
+
+
+    <div class="main">
+ 
+        <div class="hide">
+            <ul>
+            <li id="hide1"><img src="https://img.freepik.com/premium-photo/professional-photography-fresh-juicy-white-apple-fruit-background-wallpaper-image_732449-1301.jpg" alt=""></li>
+            <li id="hide2"><img src="https://www.shutterstock.com/image-illustration/white-apple-isolated-on-3d-600nw-1762531352.jpg" alt=""></li>
+            <li id="hide3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMsoHLuaQVcgtdEC7FqgLjpfQGPI8dEkg5t_jhDN_52g&s" alt=""></li>
+            <li id="hide4"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYiG2GSTsOtvS-MVUEw-zFbFoQwl4dAj4xMTPv7Bjf8gYXAJdLx9Vy1wcVHwvhdASFB6Y&usqp=CAU" alt=""></li>
+            </ul>
+        </div>
+        
+        <div class="slide">
+        
+        
+            <a href="#hide1"><img src="https://img.freepik.com/premium-photo/professional-photography-fresh-juicy-white-apple-fruit-background-wallpaper-image_732449-1301.jpg" alt=""></a>
+            <a href="#hide2"><img src="https://www.shutterstock.com/image-illustration/white-apple-isolated-on-3d-600nw-1762531352.jpg" alt=""></a>
+            <a href="#hide3"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMsoHLuaQVcgtdEC7FqgLjpfQGPI8dEkg5t_jhDN_52g&s" alt=""></a>
+            <a href="#hide4"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYiG2GSTsOtvS-MVUEw-zFbFoQwl4dAj4xMTPv7Bjf8gYXAJdLx9Vy1wcVHwvhdASFB6Y&usqp=CAU" alt=""></a>
+           
+           
+            
+        </div>
+
+        <p><br> Discription:-  <br><br>  A Kashmiri Apple Fresh and Full with Energy....</p>
+        </div>
+        
+        
+        
+        
+
+
+<div class="detail">
+ 
+    
+    <div class="apple">
+        
+        <h1 >Delicious Apple</h1>
+        <p>COD 999</p>
+      
+    </div>
+    
+     
+    <div class="price">
+        <h1><s>100</s> 70.5</h1>
+        <p> 30% Discount</p>
+    </div>
+   <hr>
+<h3 class="select">SELECT COLOUR</h3>
+<img src="https://img.freepik.com/premium-photo/professional-photography-fresh-juicy-white-apple-fruit-background-wallpaper-image_732449-1301.jpg" alt="">
+
+
+<div class="benefit">
+
+    <h3>  BENEFITS  </h3><br>
+
+    <ol>
+        <li class="list">Apples are nutricious.</li>
+        <li class="list">Apples are good for wieght loss.</li>
+        <li class="list">Apples are good for bone health.</li>
+        <li class="list">Apples are reduce risk of diabetes </li>
+    </ol>
+    <div class="but">
+        <button> <a href="#">BUY</a> </button>
+        <button type="submit"><a href="#">ADD TO CART</a></button>
+    </div>
+       
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+        
+        </div>
+
+
+
+
+</body>
+</html>
